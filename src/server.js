@@ -45,6 +45,10 @@ app.use(interceptor((req, res) => ({
 
 server.applyMiddleware({ app });
 
+app.get('/', (req, res) => {
+  res.redirect(server.graphqlPath);
+});
+
 app.listen(port, () => {
   console.log(`Server ready at http://localhost:${port}${server.graphqlPath}`);
 });
